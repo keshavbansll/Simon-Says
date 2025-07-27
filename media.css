@@ -2,12 +2,16 @@
 @media (max-width: 500px) {
     section{
         width: 20rem;
-        margin: 4rem 0;
+        margin: 2rem 0;
     }
 
     section div{
         height: 7rem;
         width: 7rem;
+    }
+
+    .startBtn{
+        opacity: 1;
     }
 }
 

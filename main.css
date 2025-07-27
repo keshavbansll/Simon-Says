@@ -1,6 +1,6 @@
  *{
     text-align: center;
-    background-color: #dbe3e0;
+    background-color: #d1d0cb;
 }
 
 section{
@@ -38,4 +38,22 @@ section div{
 
 .darken{
     filter: brightness(60%);
+}
+
+.startBtn{
+    background-color: antiquewhite;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 0rem 3rem;
+    margin: 3rem 0 1rem 0;
+    color: black;
+    opacity: 0;
+}
+
+.startBtn:active{
+    background-color: rgb(176, 165, 150);
+}
+
+.opacity{
+    display: none;
 }

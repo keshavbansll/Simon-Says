@@ -2,6 +2,7 @@ let highest = Number(localStorage.getItem("highest"));
 
 let score = document.querySelector(".score");
 let highScore = document.querySelector(".high-score");
+let startBtn = document.querySelector(".startBtn");
 highScore.innerHTML = `Highest Score: ${highest}`;
 
 let gameSeq = [];
@@ -27,9 +28,12 @@ function startGame() {
   }
 }
 
+startBtn.addEventListener("click", function () {
+  startGame();
+  this.classList.add("opacity");
+});
+
 document.addEventListener("keydown", startGame);
-document.addEventListener("touchstart", { once: true });
-document.addEventListener("click", { once: true });
 
 function btnFlash(btn) {
   btn.classList.add("darken");
@@ -110,4 +114,6 @@ function reset() {
   gameSeq = [];
   userSeq = [];
   points = -1;
+  startBtn.classList.remove("opacity");
+  startBtn.innerText = "Play Again!";
 }

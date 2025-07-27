@@ -3,7 +3,40 @@ let highest = Number(localStorage.getItem("highest"));
 let score = document.querySelector(".score");
 let highScore = document.querySelector(".high-score");
 let startBtn = document.querySelector(".startBtn");
+let restart = document.querySelector(".restart");
+let rulesBtn = document.querySelector(".rules");
+let rulesInfo = document.querySelector(".info");
 highScore.innerHTML = `Highest Score: ${highest}`;
+
+let toggle = false;
+
+rulesBtn.addEventListener("click", function () {
+  if (!toggle) {
+    rulesInfo.classList.remove("hidden");
+    rulesInfo.classList.remove("slide-up");
+    rulesInfo.classList.add("slide-down");
+    rulesInfo.addEventListener("animationend", function handler(e) {
+      if (e.animationName === "slideDown") {
+        rulesInfo.style.transform = "translate(-50%, -50%)";
+        rulesInfo.classList.remove("slide-down");
+        rulesInfo.removeEventListener("animationend", handler);
+      }
+    });
+  } else {
+    rulesInfo.classList.remove("slide-down");
+    rulesInfo.classList.add("slide-up");
+    rulesInfo.addEventListener("animationend", function handler(e) {
+      if (e.animationName === "slideUp") {
+        rulesInfo.classList.add("hidden");
+        rulesInfo.style.transform = "translate(-50%, -500%)";
+        rulesInfo.classList.remove("slide-up");
+        rulesInfo.removeEventListener("animationend", handler);
+      }
+    });
+  }
+
+  toggle = !toggle;
+});
 
 let gameSeq = [];
 let userSeq = [];
@@ -18,7 +51,7 @@ if (highest !== null) {
   highScore.innerHTML = `Highest Score: ${highest}`;
 } else {
   highest = -1;
-  highScore.innerHTML = ""; // Don’t show anything yet
+  highScore.innerHTML = "";
 }
 
 function startGame() {
@@ -82,7 +115,8 @@ function checkSeq(idx) {
       highScore.innerHTML = `Highest Score: ${highest}`;
     }
 
-    score.innerHTML = `❌ Game Over! Final score: <b>${finalScore}</b><br>Press any key to restart`;
+    score.innerHTML = `❌ Game Over! Final score: <b>${finalScore}</b>`;
+    restart.innerText = "Press any key to restart!";
 
     document.body.classList.add("shake");
 

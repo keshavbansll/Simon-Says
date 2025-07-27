@@ -2,15 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simon Says- Online game</title>
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="media.css" />
     <link rel="icon" href="assets/favicon.webp" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <h2>Simon Says</h2>
+    <header>
+      <h2>Simon Says</h2>
+      <button type="button" class="rules">
+        <i class="fa-solid fa-book"></i>Rules
+      </button>
+      <div class="info hidden">
+        <h4><b>Objective: </b></h4>
+        <p>
+          Repeat the sequence of colors shown by the game. With each level, the
+          sequence gets longer. How far can you go?
+        </p>
+        <h4><b>Rules: </b></h4>
+        <ul>
+          <li>Press Play or any keyboard key to start.</li>
+          <li>
+            Watch carefully — one or more buttons will flash in a specific
+            order.
+          </li>
+          <li>Repeat the exact order by clicking the buttons.</li>
+          <li>Get it right? The game adds a new color to the sequence.</li>
+          <li>Make a mistake? Game over. Your final score is shown.</li>
+          <li>Try to beat your highest score, which is saved automatically!</li>
+        </ul>
+        <h4><b>Tip: </b></h4>
+        <ul>
+          <li>Focus and memorize the sequence — it speeds up as you go.</li>
+        </ul>
+      </div>
+    </header>
     <section>
       <div class="red btn" type="button" id="red" tabindex="0"></div>
       <div class="blue btn" type="button" id="blue" tabindex="0"></div>
@@ -18,8 +53,9 @@
       <div class="purple btn" type="button" id="purple" tabindex="0"></div>
     </section>
     <h3 class="score">Press <b>any key</b> or <b>play</b> to start.</h3>
+    <h3 class="restart"></h3>
     <h3 class="high-score"></h3>
-    <button class="startBtn">Play</button>
+    <button type="button" class="startBtn">Play</button>
     <script src="app.js"></script>
   </body>
 </html>

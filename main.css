@@ -1,6 +1,13 @@
  *{
     text-align: center;
     background-color: #d1d0cb;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*:focus{
+    outline: none;
+    box-shadow: none;
 }
 
 section{
@@ -70,4 +77,72 @@ section div{
 
 .score{
     padding: 0rem 2rem;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+header{
+    display: flex;
+    justify-self: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+.rules{
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+    font-size: 1rem;
+    background-color: #dad9d0;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    height: max-content;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0rem 0.1rem 0.3rem #0000003f;
+}
+
+.rules:active{
+    background-color: #b7b7ad;
+}
+
+.rules i {
+    font-size: 1rem;
+    padding: 0;
+    background-color: transparent;
+}
+
+.info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -500%);
+    background-color: #dad9d0;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0rem 0.1rem 5rem #000000af;
+}
+
+.slide-down{
+    animation: 1s 1 normal slideDown;
+}
+
+.slide-up{
+    animation: 2s 1 normal slideUp;
+}
+
+.info h4, .info p, .info ul, .info > ul > li{
+    font-size: 1.7rem;
+    background-color: #dad9d0;
+    text-align: left;
+}
+
+.hidden{
+    display: none;
 }

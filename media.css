@@ -13,6 +13,19 @@
     .startBtn{
         opacity: 1;
     }
+
+    .restart{
+      display: none;
+    }
+
+    .info{
+      padding: 0.5rem 1rem;
+      width: 80%;
+    }
+
+    .info h4, .info p, .info ul, .info > ul > li{
+      font-size: 1rem;
+    }
 }
 
 @keyframes shake {
@@ -24,6 +37,18 @@
   100% { transform: translate(0px, 0px); }
 }
 
-.shake {
-  animation: shake 0.5s;
+@keyframes slideDown {
+  from{
+    transform: translate(-50%, -500%);
+  } to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes slideUp {
+  from{
+    transform: translate(-50%, -50%);
+  } to {
+    transform: translate(-50%, -500%);
+  }
 }

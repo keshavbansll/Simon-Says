@@ -1,0 +1,25 @@
+
+@media (max-width: 500px) {
+    section{
+        width: 20rem;
+        margin: 4rem 0;
+    }
+
+    section div{
+        height: 7rem;
+        width: 7rem;
+    }
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px); }
+  20% { transform: translate(-5px, 0px); }
+  40% { transform: translate(5px, 0px); }
+  60% { transform: translate(-5px, 0px); }
+  80% { transform: translate(5px, 0px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}

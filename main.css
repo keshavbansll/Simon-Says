@@ -1,0 +1,41 @@
+ *{
+    text-align: center;
+    background-color: #dbe3e0;
+}
+
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-self: center;
+    width: 35rem;
+    gap: 1rem;
+}
+
+section div{
+    height: 14rem;
+    width: 14rem;
+    border-radius: 20%;
+    border: 8px solid black;
+    cursor: pointer;
+}
+
+.red {
+    background-color: #d95980;
+}
+
+.blue{
+    background-color: #63aac0;
+}
+
+.yellow{
+    background-color: #f99b45;
+}
+
+.purple{
+    background-color: #819ff9;
+}
+
+.darken{
+    filter: brightness(60%);
+}

@@ -1,4 +1,4 @@
-let highest = Number(localStorage.getItem("highest")) || -1;
+let highest = Number(localStorage.getItem("highest"));
 
 let score = document.querySelector(".score");
 let highScore = document.querySelector(".high-score");
@@ -12,14 +12,24 @@ let points = -1;
 
 let btns = ["red", "blue", "yellow", "purple"];
 
-document.addEventListener("keypress", function () {
-  if (started == false) {
-    console.log("game is started");
-    started = true;
+if (highest !== null) {
+  highest = Number(highest);
+  highScore.innerHTML = `Highest Score: ${highest}`;
+} else {
+  highest = -1;
+  highScore.innerHTML = ""; // Don’t show anything yet
+}
 
+function startGame() {
+  if (!started) {
+    started = true;
     scoreUp();
   }
-});
+}
+
+document.addEventListener("keydown", startGame);
+document.addEventListener("touchstart", { once: true });
+document.addEventListener("click", { once: true });
 
 function btnFlash(btn) {
   btn.classList.add("darken");

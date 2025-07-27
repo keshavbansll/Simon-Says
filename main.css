@@ -40,6 +40,16 @@ section div{
     filter: brightness(60%);
 }
 
+.btn {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .startBtn{
     background-color: antiquewhite;
     font-size: 1.5rem;
@@ -56,4 +66,8 @@ section div{
 
 .opacity{
     display: none;
+}
+
+.score{
+    padding: 0rem 2rem;
 }

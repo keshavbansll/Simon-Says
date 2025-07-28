@@ -54,6 +54,7 @@
   padding: 0.8rem 0.8rem;
   width: 75%;
   }
+
 }
 
 @keyframes shake {
@@ -69,13 +70,13 @@
   from{
     transform: translate(-50%, -500%);
   } to {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
   }
 }
 
 @keyframes slideUp {
   from{
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
   } to {
     transform: translate(-50%, -500%);
   }

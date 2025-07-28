@@ -13,7 +13,35 @@ const sounds = {
   blue: new Audio("assets/sound/blue.wav"),
   yellow: new Audio("assets/sound/yellow.wav"),
   purple: new Audio("assets/sound/purple.wav"),
+  error: new Audio("assets/sound/error.wav"),
 };
+
+let volumeBtn = document.querySelector(".volume");
+let volumeIcon = document.querySelector(".volume i");
+
+let volume = false;
+
+volumeBtn.addEventListener("click", function () {
+  if (!volume) {
+    volumeIcon.classList.remove("fa-volume-high");
+    volumeIcon.classList.add("fa-volume-xmark");
+    for (let key in sounds) {
+      if (sounds[key] instanceof Audio) {
+        sounds[key].muted = true;
+      }
+    }
+  } else {
+    volumeIcon.classList.remove("fa-volume-xmark");
+    volumeIcon.classList.add("fa-volume-high");
+    for (let key in sounds) {
+      if (sounds[key] instanceof Audio) {
+        sounds[key].muted = false;
+      }
+    }
+  }
+
+  volume = !volume;
+});
 
 let toggle = false;
 
@@ -24,7 +52,7 @@ rulesBtn.addEventListener("click", function () {
     rulesInfo.classList.add("slide-down");
     rulesInfo.addEventListener("animationend", function handler(e) {
       if (e.animationName === "slideDown") {
-        rulesInfo.style.transform = "translate(-50%, -50%)";
+        rulesInfo.style.transform = "translate(-50%, -40%)";
         rulesInfo.classList.remove("slide-down");
         rulesInfo.removeEventListener("animationend", handler);
       }
@@ -135,6 +163,9 @@ function checkSeq(idx) {
     setTimeout(() => {
       document.body.classList.remove("shake");
     }, 500);
+
+    sounds["error"].currentTime = 0;
+    sounds["error"].play();
 
     reset();
   }

@@ -2,7 +2,7 @@
     text-align: center;
     outline: none;
     -webkit-tap-highlight-color: transparent;
-    font-family: "Press Start 2P";
+    font-family: "Press Start 2P", sans-serif;
     line-height: 2rem;
 }
 
@@ -11,20 +11,36 @@
     box-shadow: none;
 }
 
-html, body{
+html, body {
     height: 100%;
-    background: radial-gradient(circle at center, #444063, #1b1b2f);
+    margin: 0;
+    background: radial-gradient(ellipse at center, #1a1128 0%, #0c0618 100%);
+    background-attachment: fixed;
 }
 
-body::before {
+body::after {
   content: "";
   position: fixed;
-  top: 0; left: 0;
-  height: 100%; width: 100%;
-  background: url('noise.png');
-  opacity: 0.04;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  z-index: 1;
   pointer-events: none;
-  z-index: 0;
+}
+
+h2, h3, .score, .high-score, .startBtn {
+    color: #00ffcc;
+    text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000;
+    z-index: 2;
+    position: relative;
 }
 
 section{
@@ -45,26 +61,33 @@ section div{
     border: 8px solid black;
     cursor: pointer;
     transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 15px rgba(255,255,255,0.05), 0 0 20px rgba(0, 255, 255, 0.1);
+    transition: all 0.2s ease-in-out;
 }
 
-section div{
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-}
+.red, .blue, .yellow, .purple {
+    transition: all 0.2s ease-in-out;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 15px rgba(255,255,255,0.05);
+    }
 
 .red {
     background-color: #d95980;
+    box-shadow: 0 0 15px #d95980aa;
 }
 
 .blue{
     background-color: #63aac0;
+    box-shadow: 0 0 15px #819ff9aa;
 }
 
 .yellow{
     background-color: #f99b45;
+    box-shadow: 0 0 15px #f99b45aa;
 }
 
 .purple{
     background-color: #819ff9;
+    box-shadow: 0 0 15px #63aac0aa;
 }
 
 .darken{
@@ -82,17 +105,16 @@ section div{
 }
 
 .startBtn{
-    background-color: #00ffcc;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 0.2rem 3rem;
-    margin: 1rem 2rem 1rem 2rem;
-    color: black;
-    opacity: 0;
-    animation: pulse 2s infinite;
+    margin-top: 20px;
+    margin-bottom: 2rem;
+    padding: 10px 20px;
+    background-color: black;
     border: 2px solid #00ffcc;
-    box-shadow: 0 0 10px #00ffcc;
+    color: #00ffcc;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00ffcc66;
+    opacity: 0;
+    cursor: default;
 }
 
 .startBtn:active{
@@ -132,11 +154,6 @@ header{
     flex-wrap: wrap;
 }
 
-header h2{
-    cursor: pointer;
-    text-shadow: 1px 0 #819ff9;
-}
-
 .rules{
     display: flex;
     gap: 0.3rem;
@@ -171,6 +188,8 @@ header h2{
     padding: 1rem 2rem;
     border-radius: 10px;
     box-shadow: 0rem 0.1rem 5rem #000000af;
+    z-index: 999;
+    line-height: 1rem;
 }
 
 .slide-down{

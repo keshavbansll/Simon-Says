@@ -12,6 +12,7 @@
 
   .startBtn{
       opacity: 1;
+      cursor: pointer;
   }
 
   .restart{
@@ -19,12 +20,13 @@
   }
 
   .info{
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
     width: 80%;
   }
 
   .info h4, .info p, .info ul, .info > ul > li{
-    font-size: 1rem;
+    font-size: 0.6rem;
+    line-height: 1rem;
   }
 
   h2{

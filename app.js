@@ -8,6 +8,13 @@ let rulesBtn = document.querySelector(".rules");
 let rulesInfo = document.querySelector(".info");
 highScore.innerHTML = `Highest Score: ${highest}`;
 
+const sounds = {
+  red: new Audio("assets/sound/red.wav"),
+  blue: new Audio("assets/sound/blue.wav"),
+  yellow: new Audio("assets/sound/yellow.wav"),
+  purple: new Audio("assets/sound/purple.wav"),
+};
+
 let toggle = false;
 
 rulesBtn.addEventListener("click", function () {
@@ -66,7 +73,9 @@ startBtn.addEventListener("click", function () {
   this.classList.add("opacity");
 });
 
-document.addEventListener("keydown", startGame);
+document.addEventListener("keydown", (e) => {
+  if (!started && /^[a-zA-Z0-9]$/.test(e.key)) startGame();
+});
 
 function btnFlash(btn) {
   btn.classList.add("darken");
@@ -93,6 +102,9 @@ function scoreUp() {
       const color = gameSeq[i];
       const btn = document.querySelector(`.${color}`);
       btnFlash(btn);
+
+      sounds[color].currentTime = 0;
+      sounds[color].play();
     }, i * flashDelay);
   }
 }
@@ -134,6 +146,9 @@ function btnPress() {
 
   let userColor = btn.getAttribute("id");
   userSeq.push(userColor);
+
+  sounds[userColor].currentTime = 0;
+  sounds[userColor].play();
 
   checkSeq(userSeq.length - 1);
 }

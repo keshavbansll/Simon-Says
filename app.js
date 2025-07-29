@@ -52,7 +52,7 @@ rulesBtn.addEventListener("click", function () {
     rulesInfo.classList.add("slide-down");
     rulesInfo.addEventListener("animationend", function handler(e) {
       if (e.animationName === "slideDown") {
-        rulesInfo.style.transform = "translate(-50%, -30%)";
+        rulesInfo.style.transform = "translate(-50%, -35%)";
         rulesInfo.classList.remove("slide-down");
         rulesInfo.removeEventListener("animationend", handler);
       }

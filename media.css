@@ -70,13 +70,13 @@
   from{
     transform: translate(-50%, -500%);
   } to {
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -30%);
   }
 }
 
 @keyframes slideUp {
   from{
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -30%);
   } to {
     transform: translate(-50%, -500%);
   }
